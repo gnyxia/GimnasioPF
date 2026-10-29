@@ -9,7 +9,7 @@ public record RegistroPeso(String documento, LocalDate fecha, Double peso) {
     }
 
     public static RegistroPeso desdeLinea(String linea) {
-        String[] p = linea.split("\\|");
+        String[] p = linea.split("\\|", -1);
         return new RegistroPeso(p[0], LocalDate.parse(p[1]), Double.parseDouble(p[2]));
     }
 }

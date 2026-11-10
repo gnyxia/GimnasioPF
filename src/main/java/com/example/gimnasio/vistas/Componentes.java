@@ -13,6 +13,7 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.progressbar.ProgressBar;
 
 public class Componentes {
 
@@ -45,6 +46,19 @@ public class Componentes {
             case VENCIDA -> badge.addThemeVariants(BadgeVariant.ERROR);
         }
         return badge;
+    }
+
+    // Logica progressbar
+    public static Component progreso(Miembro m) {
+        double valor = (double) m.diasRestantes() / m.diasTotales();
+        ProgressBar barra = new ProgressBar();
+        barra.setValue(Math.max(0, Math.min(1, valor))); // nunca negativo ni mayor que 1
+        barra.setWidthFull();
+        String texto = m.diasRestantes() < 0 ? "Vencida" : m.diasRestantes() + " días";
+        VerticalLayout caja = new VerticalLayout(barra, new Span(texto));
+        caja.setPadding(false);
+        caja.setSpacing(false);
+        return  caja;
     }
 
     // Toda eliminacion pasa por aqui

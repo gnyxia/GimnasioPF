@@ -40,15 +40,14 @@ public class MiembrosView extends VerticalLayout {
 
         filtroEstado.setLabel("Estado");
         filtroEstado.setItems(Estado.values());
-        filtroEstado.setItemLabelGenerator(Estado::getEtiqueta);
+        filtroEstado.setItemLabelGenerator(e -> e == null ? "Todos" : e.getEtiqueta());
         filtroEstado.setEmptySelectionAllowed(true);
-        filtroEstado.setEmptySelectionCaption("Todos");
         filtroEstado.addValueChangeListener(e -> refrescar());
 
         filtroPlan.setLabel("Plan");
         filtroPlan.setItems(Plan.values());
+        filtroPlan.setItemLabelGenerator(p -> p == null ? "Todos" : p.name());
         filtroPlan.setEmptySelectionAllowed(true);
-        filtroPlan.setEmptySelectionCaption("Todos");
         filtroPlan.addValueChangeListener(e -> refrescar());
 
         HorizontalLayout filtros = new HorizontalLayout(filtroEstado, filtroPlan);

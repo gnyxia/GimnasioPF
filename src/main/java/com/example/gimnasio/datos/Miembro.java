@@ -53,15 +53,22 @@ public class Miembro {
     }
 
     public String aLinea() {
-        return String.join("|", documento, nombre.replace("|", "/"),
-        telefono.replace("|", "/"),
-        fechaInicio.toString(), fechaVencimiento.toString());
-    }
+    return String.join("|", documento, nombre.replace("|", "/"),
+            telefono.replace("|", "/"), plan.name(),
+            fechaInicio.toString(), fechaVencimiento.toString());
+}
 
     public static Miembro desdeLinea(String linea) {
-        String[] p = linea.split("\\/", -1);
-        return  new Miembro(p[0], p[1], p[2], Plan.valueOf(p[3]), LocalDate.parse(p[4]), LocalDate.parse(p[5]));
+    String[] p = linea.split("\\|", -1);
+    if (p.length == 5) {
+        LocalDate inicio = LocalDate.parse(p[3]);
+        LocalDate vencimiento = LocalDate.parse(p[4]);
+        Plan plan = Plan.desdeDuracion(inicio, vencimiento);
+        return new Miembro(p[0], p[1], p[2], plan, inicio, vencimiento);
     }
+    return new Miembro(p[0], p[1], p[2], Plan.valueOf(p[3]),
+            LocalDate.parse(p[4]), LocalDate.parse(p[5]));
+}
 
     public String getDocumento() { return documento; }
     public String getNombre() { return nombre; }

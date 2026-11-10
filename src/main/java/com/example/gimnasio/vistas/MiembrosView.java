@@ -58,7 +58,7 @@ public class MiembrosView extends VerticalLayout {
 
         grid.addComponentColumn(Componentes::avatarNombre).setHeader("Miembro")
                 .setAutoWidth(true).setFlexGrow(1);
-        grid.addColumn(m -> m.getEstado().getEtiqueta()).setHeader("Estado");
+        grid.addComponentColumn(Componentes::badge).setHeader("Estado");
         grid.addColumn(Miembro::getFechaVencimiento).setHeader("Vence");
         grid.addComponentColumn(this::acciones).setHeader("Acciones").setAutoWidth(true).setFlexGrow(0);
 

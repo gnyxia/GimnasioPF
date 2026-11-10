@@ -1,8 +1,11 @@
 package com.example.gimnasio.vistas;
 
+import com.example.gimnasio.datos.Estado;
 import com.example.gimnasio.datos.Miembro;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.avatar.Avatar;
+import com.vaadin.flow.component.badge.Badge;
+import com.vaadin.flow.component.badge.BadgeVariant;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Div;
@@ -13,6 +16,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Componentes {
 
+    // Logica Avatar
     public static Component avatarNombre(Miembro m) {
         Avatar avatar = new Avatar(m.getNombre()); // saca solo las iniciales
 
@@ -29,6 +33,18 @@ public class Componentes {
         fila.setAlignItems(FlexComponent.Alignment.CENTER);
         fila.setPadding(false);
         return fila;
+    }
+
+    // Logica Badge
+    public static Badge badge(Miembro m) {
+        Estado estado = m.getEstado();
+        Badge badge = new Badge(estado.getEtiqueta());
+        switch (estado) {
+            case ACTIVA -> badge.addThemeVariants(BadgeVariant.SUCCESS);
+            case POR_VENCER -> badge.addThemeVariants(BadgeVariant.WARNING);
+            case VENCIDA -> badge.addThemeVariants(BadgeVariant.ERROR);
+        }
+        return badge;
     }
 
     // Toda eliminacion pasa por aqui

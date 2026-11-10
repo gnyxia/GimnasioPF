@@ -62,6 +62,8 @@ public class MiembrosView extends VerticalLayout {
         grid.addComponentColumn(Componentes::progreso).setHeader("Vigencia").setWidth("120px");
         grid.addColumn(Miembro::getFechaVencimiento).setHeader("Vence");
         grid.addComponentColumn(this::acciones).setHeader("Acciones").setAutoWidth(true).setFlexGrow(0);
+        grid.addItemClickListener(e -> getUI().ifPresent(ui ->
+                ui.navigate(FichaView.class, e.getItem().getDocumento())));
 
         add(new H2("Miembros"), nuevo, filtro, filtros, grid);
         setSizeFull();

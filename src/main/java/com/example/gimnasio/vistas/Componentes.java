@@ -1,11 +1,35 @@
 package com.example.gimnasio.vistas;
 
+import com.example.gimnasio.datos.Miembro;
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class Componentes {
+
+    public static Component avatarNombre(Miembro m) {
+        Avatar avatar = new Avatar(m.getNombre()); // saca solo las iniciales
+
+        Span nombre = new Span(m.getNombre());
+        Span documento = new Span(m.getDocumento());
+        documento.getStyle().set("font-size", "var(--lumo-font-size-xs)")
+                .set("color", "var(--lumo-secondary-text-color)");
+
+        VerticalLayout textos = new VerticalLayout(nombre, documento);
+        textos.setPadding(false);
+        textos.setSpacing(false);
+
+        HorizontalLayout fila = new HorizontalLayout(avatar, textos);
+        fila.setAlignItems(FlexComponent.Alignment.CENTER);
+        fila.setPadding(false);
+        return fila;
+    }
 
     // Toda eliminacion pasa por aqui
     public static void confirmar(String titulo, String mensaje, Runnable accion) {

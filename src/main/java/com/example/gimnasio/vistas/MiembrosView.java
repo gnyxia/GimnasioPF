@@ -56,7 +56,7 @@ public class MiembrosView extends VerticalLayout {
         Button nuevo = new Button("Nuevo miembro", VaadinIcon.PLUS.create(), e -> abrirFormulario(null));
         nuevo.getElement().setAttribute("theme", "primary");
 
-        grid.addColumn(m -> m.getNombre() + " · " + m.getDocumento()).setHeader("Miembro")
+        grid.addComponentColumn(Componentes::avatarNombre).setHeader("Miembro")
                 .setAutoWidth(true).setFlexGrow(1);
         grid.addColumn(m -> m.getEstado().getEtiqueta()).setHeader("Estado");
         grid.addColumn(Miembro::getFechaVencimiento).setHeader("Vence");

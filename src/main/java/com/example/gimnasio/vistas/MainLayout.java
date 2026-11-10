@@ -35,6 +35,7 @@ public class MainLayout extends AppLayout {
         menu.addItem(new SideNavItem("Pagos", PagosView.class, VaadinIcon.MONEY.create()));
         menu.addItem(new SideNavItem("Portería", PorteriaView.class, VaadinIcon.SIGN_IN.create()));
         menu.addItem(new SideNavItem("Vencimientos", VencimientosView.class, VaadinIcon.CLOCK.create()));
+        menu.addItem(new SideNavItem("Estadísticas", EstadisticasView.class, VaadinIcon.BAR_CHART.create()));
         // AQUÍ se agregan los demás ítems, uno por rama
         addToDrawer(menu);
     }

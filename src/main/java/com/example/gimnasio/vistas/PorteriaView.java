@@ -24,7 +24,7 @@ public class PorteriaView extends VerticalLayout {
 
         Button entrada = new Button("ENTRADA", e -> procesar(true));
         Button salida = new Button("SALIDA", e -> procesar(false));
-        entrada.getElement().setAttribute("theme", "primary")
+        entrada.getElement().setAttribute("theme", "primary");
         for (Button b : new Button[]{entrada, salida}) {
             b.setWidthFull();
             b.setHeight("60px");

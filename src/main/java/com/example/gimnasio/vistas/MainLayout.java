@@ -21,6 +21,7 @@ public class MainLayout extends AppLayout {
 
         SideNav menu = new SideNav();
         menu.addItem(new SideNavItem("Miembros", MiembrosView.class, VaadinIcon.USERS.create()));
+        menu.addItem(new SideNavItem("Pagos", PagosView.class, VaadinIcon.MONEY.create()));
         // AQUÍ se agregan los demás ítems, uno por rama
         addToDrawer(menu);
     }

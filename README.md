@@ -6,6 +6,24 @@ Hecha con **Java 21**, **Spring Boot** y **Vaadin 25** (solo componentes gratuit
 
 ---
 
+## Capturas de pantalla
+
+![Vista de miembros](<img/Screenshot 2026-11-11 at 2.22.37 PM.png>)
+
+![Gestión de pagos](<img/Screenshot 2026-11-11 at 2.22.42 PM.png>)
+
+![Control de portería](<img/Screenshot 2026-11-11 at 2.22.46 PM.png>)
+
+![Vencimientos](<img/Screenshot 2026-11-11 at 2.22.47 PM.png>)
+
+![Ficha del miembro](<img/Screenshot 2026-11-11 at 2.22.49 PM.png>)
+
+![Estadísticas](<img/Screenshot 2026-11-11 at 2.22.50 PM.png>)
+
+![Mapa de calor](<img/Screenshot 2026-11-11 at 2.22.55 PM.png>)
+
+---
+
 ## Funcionalidades
 
 | Vista | Ruta | Qué hace |
@@ -119,6 +137,12 @@ Comprueban la renovación de membresías (vigente y vencida) y el cálculo del e
 | Linux / macOS | `./mvnw test` |
 | Windows PowerShell | `.\mvnw test` |
 | Windows CMD | `mvnw test` |
+
+---
+
+## Autor
+
+Daniel Mathias Ortiz Lopez
 
 ---
 

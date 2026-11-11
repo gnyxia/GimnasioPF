@@ -5,6 +5,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 datos/
+img/
 
 ### STS ###
 .apt_generated

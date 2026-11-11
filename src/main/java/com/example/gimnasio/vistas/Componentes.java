@@ -23,8 +23,7 @@ public class Componentes {
 
         Span nombre = new Span(m.getNombre());
         Span documento = new Span(m.getDocumento());
-        documento.getStyle().set("font-size", "var(--lumo-font-size-xs)")
-                .set("color", "var(--lumo-secondary-text-color)");
+        documento.getStyle().set("font-size", "0.8em").set("opacity", "0.7");
 
         VerticalLayout textos = new VerticalLayout(nombre, documento);
         textos.setPadding(false);
@@ -80,9 +79,15 @@ public class Componentes {
     // Tarjeta verde o roja para los mensajes de porteria
     public static Div mensaje(String texto, boolean exito) {
         Div div = new Div(texto);
-        div.getStyle().set("background", exito ? "#2e7d32" : "#c62828")
-                .set("color", "white").set("padding", "16px")
-                .set("border-radius", "8px").set("font-weight", "bold")
+        div.getStyle().set("background", exito
+                        ? "var(--lumo-success-color-10pct)"
+                        : "var(--lumo-error-color-10pct)")
+                .set("color", exito
+                        ? "var(--lumo-success-text-color)"
+                        : "var(--lumo-error-text-color)")
+                .set("padding", "var(--lumo-space-m)")
+                .set("border-radius", "var(--lumo-border-radius-m)")
+                .set("font-weight", "600")
                 .set("text-align", "center");
         return div;
     }

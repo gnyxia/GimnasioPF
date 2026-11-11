@@ -10,4 +10,15 @@ public enum Plan {
     public int getMeses() {
         return meses;
     }
+
+    public static Plan desdeDuracion(java.time.LocalDate inicio, java.time.LocalDate vencimiento) {
+        for (Plan plan : values()) {
+            if (inicio.plusMonths(plan.meses).equals(vencimiento)) {
+                return plan;
+            }
+        }
+        throw new IllegalArgumentException(
+                "La duración del miembro no coincide con un plan válido: "
+                        + inicio + " - " + vencimiento);
+    }
 }

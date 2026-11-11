@@ -56,11 +56,14 @@ public class MiembrosView extends VerticalLayout {
         Button nuevo = new Button("Nuevo miembro", VaadinIcon.PLUS.create(), e -> abrirFormulario(null));
         nuevo.getElement().setAttribute("theme", "primary");
 
-        grid.addColumn(m -> m.getNombre() + " · " + m.getDocumento()).setHeader("Miembro")
+        grid.addComponentColumn(Componentes::avatarNombre).setHeader("Miembro")
                 .setAutoWidth(true).setFlexGrow(1);
-        grid.addColumn(m -> m.getEstado().getEtiqueta()).setHeader("Estado");
+        grid.addComponentColumn(Componentes::badge).setHeader("Estado");
+        grid.addComponentColumn(Componentes::progreso).setHeader("Vigencia").setWidth("120px");
         grid.addColumn(Miembro::getFechaVencimiento).setHeader("Vence");
         grid.addComponentColumn(this::acciones).setHeader("Acciones").setAutoWidth(true).setFlexGrow(0);
+        grid.addItemClickListener(e -> getUI().ifPresent(ui ->
+                ui.navigate(FichaView.class, e.getItem().getDocumento())));
 
         add(new H2("Miembros"), nuevo, filtro, filtros, grid);
         setSizeFull();

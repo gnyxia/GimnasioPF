@@ -4,10 +4,6 @@ Aplicación web para controlar las membresías, los pagos y la asistencia de un 
 
 Hecha con **Java 21**, **Spring Boot** y **Vaadin 25** (solo componentes gratuitos). Los datos se guardan en archivos de texto `.txt`, sin base de datos.
 
-- **Autor/a:** _tu nombre_
-- **Curso:** _nombre del curso_
-- **Proyecto:** 10. Gimnasio
-
 ---
 
 ## Funcionalidades
@@ -229,19 +225,6 @@ src/test/java/com/example/gimnasio/datos/
 | Los datos de ejemplo desaparecieron | Detén la app, borra la carpeta `datos/` y arranca de nuevo |
 | Aparece "Línea ignorada" en la consola | Una línea de un `.txt` tiene un formato incorrecto. Revisa la tabla de formatos; la copia `.bak` conserva el original |
 
----
-
-## Capturas
-
-_Agrega aquí capturas en computador y en celular, guardadas en una carpeta `docs/`:_
-
-```markdown
-![Miembros](docs/miembros.png)
-![Mapa de calor](docs/mapa-calor.png)
-![En el celular](docs/movil.png)
-```
-
----
 
 ## Tecnologías
 
